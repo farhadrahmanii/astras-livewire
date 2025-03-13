@@ -3,10 +3,9 @@
 use Livewire\Volt\Volt;
 use App\Http\Controllers\post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\FormComponent;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', FormComponent::class)->name('home');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -15,7 +14,7 @@ Route::view('dashboard', 'dashboard')
 Route::middleware(['auth'])->group(function () {
 
 
-Route::get('post/form', [post::class, 'postindex'])->name('post_form');
+    Route::get('post/form', [post::class, 'postindex'])->name('post_form');
 
 
     Route::redirect('settings', 'settings/profile');
@@ -25,4 +24,4 @@ Route::get('post/form', [post::class, 'postindex'])->name('post_form');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
