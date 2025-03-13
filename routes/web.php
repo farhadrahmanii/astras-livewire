@@ -5,17 +5,18 @@ use App\Http\Controllers\post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\FormComponent;
 
-Route::get('/', FormComponent::class)->name('home');
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
-
+    Route::get('/home', FormComponent::class)->name('home');
 
     Route::get('post/form', [post::class, 'postindex'])->name('post_form');
-
 
     Route::redirect('settings', 'settings/profile');
 
