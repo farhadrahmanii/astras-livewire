@@ -1544,6 +1544,7 @@
 
     <main class="w-full lg:max-w-4xl max-w-[335px]">
         @livewire('form-component')
+
     </main>
 
     @livewireScripts
