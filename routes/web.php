@@ -4,6 +4,7 @@ use Livewire\Volt\Volt;
 use App\Http\Controllers\post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\FormComponent;
+use App\Http\Controllers\KhatEstashanController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,5 +25,9 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
+
+//khat estashan part url
+Route::get('/khat-estashan/create', [KhatEstashanController::class, 'create'])->name('khat-estashan.create');
+
 
 require __DIR__ . '/auth.php';
