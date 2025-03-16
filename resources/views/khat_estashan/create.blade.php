@@ -1,3 +1,3 @@
-<section class="w-full">
+<x-layouts.app title="dashboard">
     @livewire('khat-estashan.create')
-</section>
+</x-layouts.app>
