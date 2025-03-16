@@ -20,9 +20,11 @@
             </flux:navlist.group>
         </flux:navlist>
         <flux:navlist variant="outline">
-            <flux:navlist.group :heading="__('Platform')" class="grid">
-                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
-                    wire:navigate>{{ __('Hairatan') }}</flux:navlist.item>
+            <flux:navlist.group :heading="__('Train Station')" class="grid" expandable>
+                <flux:navlist.item icon="document-text" :href="route('khat-estashan.create')" :current="request()->routeIs('khat-estashan.create')"
+                    wire:navigate>{{ __('Create Form') }}</flux:navlist.item>
+                <flux:navlist.item icon="table-cells" 
+                    wire:navigate>{{ __('Records') }}</flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 
