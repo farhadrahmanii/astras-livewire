@@ -28,7 +28,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //khat estashan part url
-Route::get('/khat-estashan/create', Create::class)->name('khat-estashan.create');
+Route::get('/khatestashan/create', Create::class)->name('khat-estashan.create');
+Route::get('khatestashan/index', [KhatEstashanController::class, 'index'])->name('khat-estashan.index');
 
 
 require __DIR__ . '/auth.php';
