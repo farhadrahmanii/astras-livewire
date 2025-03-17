@@ -3,6 +3,7 @@
 
 <head>
     @include('partials.head')
+    <link href="{{asset('css/tailwind.css')}}" rel="stylesheet">
 </head>
 
 <body class="min-h-screen bg-white dark:bg-zinc-800">

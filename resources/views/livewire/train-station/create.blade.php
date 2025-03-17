@@ -1,151 +1,163 @@
-<div class="shadow-sm bg-white rounded-lg">
-    <!-- Include Tailwind CSS -->
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
-    <div class="border-b px-6 py-4">
-        <h3 class="text-lg font-semibold">Create Train Station</h3>
+<div class="bg-white rounded-lg shadow-sm">
+    <div class="px-6 py-4 border-b border-zinc-200">
+        <h3 class="text-lg font-semibold text-zinc-900">Create Train Station</h3>
     </div>
     <div class="p-6">
         <form wire:submit.prevent="store">
             <!-- Station Details Section -->
-            <div class="border rounded-lg mb-6">
-                <div class="bg-gray-50 px-6 py-4 border-b">
-                    <h4 class="font-bold">Station Details</h4>
+            <div class="rounded-lg mb-6 border border-zinc-200">
+                <div class="bg-zinc-50 px-6 py-4 border-b border-zinc-200">
+                    <h4 class="font-bold text-zinc-800">Station Details</h4>
                 </div>
                 <div class="p-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block font-semibold mb-2">Product Type <span class="text-red-500">*</span></label>
-                            <select class="w-full rounded-lg border-gray-300" wire:model="product_type_id" data-control="select2" data-placeholder="Select Product Type">
-                                <option></option>
-                                <option value="1">Product Type 1</option>
-                                <option value="2">Product Type 2</option>
-                            </select>
-                            @error('product_type_id') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                        </div>
-                        <div>
-                            <label class="block font-semibold mb-2">Transport Type <span class="text-red-500">*</span></label>
-                            <select class="w-full rounded-lg border-gray-300" wire:model="transport_type_id" data-control="select2" data-placeholder="Select Transport Type">
-                                <option></option>
-                                <option value="1">Transport Type 1</option>
-                                <option value="2">Transport Type 2</option>
-                            </select>
-                            @error('transport_type_id') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                        </div>
+                        <x-flux::select
+                            label="Product Type"
+                            wire:model="product_type_id"
+                            placeholder="Select Product Type"
+                            required
+                        >
+                            <option value="1">Product Type 1</option>
+                            <option value="2">Product Type 2</option>
+                        </x-flux::select>
+
+                        <x-flux::select
+                            label="Transport Type"
+                            wire:model="transport_type_id"
+                            placeholder="Select Transport Type"
+                            required
+                        >
+                            <option value="1">Transport Type 1</option>
+                            <option value="2">Transport Type 2</option>
+                        </x-flux::select>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block font-semibold mb-2">Company <span class="text-red-500">*</span></label>
-                            <select class="w-full rounded-lg border-gray-300" wire:model="company_id" data-control="select2" data-placeholder="Select Company">
-                                <option></option>
-                                <option value="1">Company 1</option>
-                                <option value="2">Company 2</option>
-                            </select>
-                            @error('company_id') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                        </div>
-                        <div>
-                            <label class="block font-semibold mb-2">Product <span class="text-red-500">*</span></label>
-                            <select class="w-full rounded-lg border-gray-300" wire:model="product_id" data-control="select2" data-placeholder="Select Product">
-                                <option></option>
-                                <option value="1">Product 1</option>
-                                <option value="2">Product 2</option>
-                            </select>
-                            @error('product_id') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                        </div>
+                        <x-flux::select
+                            label="Company"
+                            wire:model="company_id"
+                            placeholder="Select Company"
+                            required
+                        >
+                            <option value="1">Company 1</option>
+                            <option value="2">Company 2</option>
+                        </x-flux::select>
+
+                        <x-flux::select
+                            label="Product"
+                            wire:model="product_id"
+                            placeholder="Select Product"
+                            required
+                        >
+                            <option value="1">Product 1</option>
+                            <option value="2">Product 2</option>
+                        </x-flux::select>
                     </div>
                 </div>
             </div>
 
             <!-- Route Information Section -->
-            <div class="border rounded-lg mb-6">
-                <div class="bg-gray-50 px-6 py-4 border-b">
-                    <h4 class="font-bold">Route Information</h4>
+            <div class="rounded-lg mb-6 border border-zinc-200">
+                <div class="bg-zinc-50 px-6 py-4 border-b border-zinc-200">
+                    <h4 class="font-bold text-zinc-800">Route Information</h4>
                 </div>
                 <div class="p-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block font-semibold mb-2">Origin Country <span class="text-red-500">*</span></label>
-                            <select class="w-full rounded-lg border-gray-300" wire:model="country_from_id" data-control="select2" data-placeholder="Select Origin Country">
-                                <option></option>
-                                <option value="1">Country 1</option>
-                                <option value="2">Country 2</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block font-semibold mb-2">Destination Country <span class="text-red-500">*</span></label>
-                            <select class="w-full rounded-lg border-gray-300" wire:model="country_to_id" data-control="select2" data-placeholder="Select Destination Country">
-                                <option></option>
-                                <option value="1">Country 1</option>
-                                <option value="2">Country 2</option>
-                            </select>
-                        </div>
+                        <x-flux::select
+                            label="Origin Country"
+                            wire:model="country_from_id"
+                            placeholder="Select Origin Country"
+                            required
+                        >
+                            <option value="1">Country 1</option>
+                            <option value="2">Country 2</option>
+                        </x-flux::select>
+
+                        <x-flux::select
+                            label="Destination Country"
+                            wire:model="country_to_id"
+                            placeholder="Select Destination Country"
+                            required
+                        >
+                            <option value="1">Country 1</option>
+                            <option value="2">Country 2</option>
+                        </x-flux::select>
                     </div>
                 </div>
             </div>
 
             <!-- Cargo Details Section -->
-            <div class="border rounded-lg mb-6">
-                <div class="bg-gray-50 px-6 py-4 border-b">
-                    <h4 class="font-bold">Cargo Details</h4>
+            <div class="rounded-lg mb-6 border border-zinc-200">
+                <div class="bg-zinc-50 px-6 py-4 border-b border-zinc-200">
+                    <h4 class="font-bold text-zinc-800">Cargo Details</h4>
                 </div>
                 <div class="p-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="block font-semibold mb-2">Number of Wagons <span class="text-red-500">*</span></label>
-                            <input type="number" class="w-full rounded-lg border-gray-300" wire:model="number_of_wagon" placeholder="Enter number of wagons">
-                            @error('number_of_wagon') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                        </div>
-                        <div>
-                            <label class="block font-semibold mb-2">Weight (tons) <span class="text-red-500">*</span></label>
-                            <input type="number" step="0.01" class="w-full rounded-lg border-gray-300" wire:model="weight" placeholder="Enter weight in tons">
-                            @error('weight') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                        </div>
+                        <x-flux::input
+                            type="number"
+                            label="Number of Wagons"
+                            wire:model="number_of_wagon"
+                            placeholder="Enter number of wagons"
+                            required
+                        />
+
+                        <x-flux::input
+                            type="number"
+                            step="0.01"
+                            label="Weight (tons)"
+                            wire:model="weight"
+                            placeholder="Enter weight in tons"
+                            required
+                        />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block font-semibold mb-2">Number of Bars <span class="text-red-500">*</span></label>
-                            <input type="number" class="w-full rounded-lg border-gray-300" wire:model="number_of_bar" placeholder="Enter number of bars">
-                        </div>
+                        <x-flux::input
+                            type="number"
+                            label="Number of Bars"
+                            wire:model="number_of_bar"
+                            placeholder="Enter number of bars"
+                            required
+                        />
                     </div>
                 </div>
             </div>
 
             <!-- Schedule Section -->
-            <div class="border rounded-lg mb-6">
-                <div class="bg-gray-50 px-6 py-4 border-b">
-                    <h4 class="font-bold">Schedule</h4>
+            <div class="rounded-lg mb-6 border border-zinc-200">
+                <div class="bg-zinc-50 px-6 py-4 border-b border-zinc-200">
+                    <h4 class="font-bold text-zinc-800">Schedule</h4>
                 </div>
                 <div class="p-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block font-semibold mb-2">Departure Date <span class="text-red-500">*</span></label>
-                            <input type="date" class="w-full rounded-lg border-gray-300" wire:model="date_of_out">
-                        </div>
-                        <div>
-                            <label class="block font-semibold mb-2">Arrival Date <span class="text-red-500">*</span></label>
-                            <input type="date" class="w-full rounded-lg border-gray-300" wire:model="date_of_in">
-                        </div>
+                        <x-flux::input
+                            type="date"
+                            label="Departure Date"
+                            wire:model="date_of_out"
+                            required
+                        />
+
+                        <x-flux::input
+                            type="date"
+                            label="Arrival Date"
+                            wire:model="date_of_in"
+                            required
+                        />
                     </div>
                 </div>
             </div>
 
             <!-- Action buttons -->
             <div class="flex justify-end gap-3">
-                <button type="button" class="px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100" wire:click="cancel">
-                    <i class="ki-duotone ki-cross-square text-lg mr-1">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>
+                <x-flux::button color="red" wire:click="cancel" outline>
+                    <x-flux::icon name="x-mark" class="mr-1" />
                     Cancel
-                </button>
-                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                    <i class="ki-duotone ki-check-square text-lg mr-1">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>
+                </x-flux::button>
+                
+                <x-flux::button type="submit" color="primary">
+                    <x-flux::icon name="check" class="mr-1" />
                     Create
-                </button>
+                </x-flux::button>
             </div>
         </form>
     </div>
