@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class KhatEstashanController extends Controller
 {
     public function index(){
+
+        return view('khat_estashan.index');
        
     }
 
