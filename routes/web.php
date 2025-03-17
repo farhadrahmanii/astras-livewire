@@ -5,6 +5,7 @@ use App\Http\Controllers\post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\FormComponent;
 use App\Http\Controllers\KhatEstashanController;
+use App\Livewire\TrainStation\Create;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,7 +28,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //khat estashan part url
-Route::get('/khatestashan/create', [KhatEstashanController::class, 'create'])->name('khat-estashan.create');
+Route::get('/khatestashan/create', Create::class)->name('khat-estashan.create');
 Route::get('khatestashan/index', [KhatEstashanController::class, 'index'])->name('khat-estashan.index');
 
 
