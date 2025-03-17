@@ -1,3 +1,3 @@
-<x-layouts.app title="dashboard">
+<x-layouts.app title="index">
     @livewire('khat-estashan.index')
 </x-layouts.app>

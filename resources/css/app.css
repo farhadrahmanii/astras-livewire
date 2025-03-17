@@ -1,5 +1,14 @@
-@import 'tailwindcss';
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 @import '../../vendor/livewire/flux/dist/flux.css';
+/* resources/css/app.css */
+
+
+@tailwind utilities;
+
+
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @source "../views";
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
